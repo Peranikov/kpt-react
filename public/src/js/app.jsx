@@ -1,15 +1,13 @@
 var Header = require('./partials/header');
-var UserList = require('./partials/userList');
-var MessageBox = require('./partials/messageBox');
+var KptForm = require('./partials/kptForm');
+var KptList = require('./partials/kptList');
 
 var Page = React.createClass({
 	render: function () {
 		return (
 			<div className="app">
-				<Header />
-
-				<UserList />
-				<MessageBox />
+				<KptForm />
+				<KptList />
 			</div>
 		);
 	}
