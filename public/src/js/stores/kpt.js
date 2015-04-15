@@ -48,7 +48,7 @@ kptStore.dispatcherToken = Dispatcher.register(function(payload) {
         id: kptLists.length,
         author: action.author,
         comment: action.comment,
-        grouping: 'keep'
+        grouping: action.grouping
       });
       kptStore.emitChange();
       break;

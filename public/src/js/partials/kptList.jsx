@@ -1,7 +1,15 @@
 var _ = require('lodash');
 var KptStore = require('../stores/kpt');
+var KptLabel = require('../components/kptLabel');
 
 var KptList = React.createClass({
+  getInitialState: function() {
+    return {
+      keeps: KptStore.getGroup('keep'),
+      problems: KptStore.getGroup('problem'),
+      try: KptStore.getGroup('try'),
+    }
+  },
   componentDidMount: function() {
     KptStore.addChangeListener(this._onChange);
   },
@@ -9,15 +17,19 @@ var KptList = React.createClass({
     KptStore.removeChangeListener(this._onChange);
   },
   _onChange: function() {
-    this.render;
+    this.setState({
+      keeps: KptStore.getGroup('keep'),
+      problems: KptStore.getGroup('problem'),
+      try: KptStore.getGroup('try'),
+    });
   },
   render: function() {
-    var keepList = _.map(KptStore.getGroup('keep'), function(kpt) {
-      return <li>{kpt.comment}</li>
+    var keepList = _.map(this.state.keeps, function(keep) {
+      return <KptLabel key={keep.id} comment={keep.comment} author={keep.author} />
     });
 
-    var problemList = _.map(KptStore.getGroup('problem'), function(kpt) {
-      return <li>{kpt.comment}</li>
+    var problemList = _.map(this.state.problems, function(problem) {
+      return <li key={problem.id}>{problem.comment} - @{problem.author}</li>
     });
     return (
       <div>

@@ -1,11 +1,12 @@
 var Dispatcher = require('../dispatchers/app');
 
 var kptAction = {
-  add: function(comment, author) {
+  add: function(comment, author, grouping) {
     Dispatcher.handleViewAction({
       actionType: 'add',
       comment: comment,
-      author: author
+      author: author,
+      grouping: grouping
     });
   }
 };
