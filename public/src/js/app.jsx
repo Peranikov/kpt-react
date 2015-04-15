@@ -1,4 +1,3 @@
-var Header = require('./partials/header');
 var KptForm = require('./partials/kptForm');
 var KptList = require('./partials/kptList');
 
