@@ -38,11 +38,17 @@ var KptList = React.createClass({
     return (
       <div>
         <h2>Keep</h2>
+        <div className="row">
           {keepList}
+        </div>
         <h2>Problem</h2>
+        <div className="row">
           {problemList}
+        </div>
         <h2>Try</h2>
+        <div className="row">
           {tryList}
+        </div>
       </div>
     );
   }

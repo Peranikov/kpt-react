@@ -5,8 +5,13 @@ var KptLabel = React.createClass({
   },
   render: function() {
     return (
-      <div>
-        <span>{this.props.comment}</span>-<span>@{this.props.author}</span>
+      <div className="col-md-2">
+        <div className="thumbnail" style={{background: "#9F9"}}>
+          <div className="caption">
+            <h3>{this.props.comment}</h3>
+            <span>@{this.props.author}</span>
+          </div>
+        </div>
       </div>
     )
   }
