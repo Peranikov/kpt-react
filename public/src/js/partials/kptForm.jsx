@@ -10,22 +10,25 @@ var KptForm = React.createClass({
   render: function() {
     return (
       <div>
-        <div>
-          <label>Comment:</label>
-          <input id="comment" type="text" />
-        </div>
-        <div>
-          <label>Author:</label>
-          <input id="author" type="text" />
-        </div>
-        <div>
-          <select id="grouping">
-            <option value="keep">Keep</option>
-            <option value="problem">Problem</option>
-            <option value="try">Try</option>
-          </select>
-        </div>
-        <button onClick={this._onAdd}>Add</button>
+        <form>
+          <div className="form-group">
+            <label for="comment">Comment</label>
+            <input className="form-control" id="comment" type="text" />
+          </div>
+          <div className="form-group">
+            <label for="author">Author</label>
+            <input className="form-control" id="author" type="text" />
+          </div>
+          <div className="form-group">
+            <label for="grouping">Group</label>
+            <select className="form-control" id="grouping">
+              <option value="keep">Keep</option>
+              <option value="problem">Problem</option>
+              <option value="try">Try</option>
+            </select>
+          </div>
+          <button type="button" className="btn btn-default" onClick={this._onAdd}>Add</button>
+        </form>
       </div>
     );
   }
