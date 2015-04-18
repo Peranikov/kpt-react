@@ -4,15 +4,16 @@ var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 
 var CHANGE_EVENT = 'change';
+var labelID = 0
 var kptLists = [
   {
-    id: 1,
+    id: labelID++,
     author: 'Peranikov',
     comment: 'よかったこと',
     grouping: 'keep'
   },
   {
-    id: 2,
+    id: labelID++,
     author: 'Peranikov',
     comment: 'わるかったこと',
     grouping: 'problem'
@@ -55,7 +56,7 @@ kptStore.dispatcherToken = Dispatcher.register(function(payload) {
     case 'add':
       // TODO: Storeのメソッドにする
       kptLists.push({
-        id: kptLists.length,
+        id: labelID++,
         author: action.author,
         comment: action.comment,
         grouping: action.grouping
