@@ -36,6 +36,15 @@ var kptStore = assign({}, EventEmitter.prototype, {
   },
   getAll: function() {
     return kptLists;
+  },
+  remove: function(id) {
+    console.log(kptLists)
+
+    _.remove(kptLists, function(kpt) {
+      return kpt.id == id
+    });
+
+    console.log(kptLists)
   }
 });
 
@@ -44,12 +53,17 @@ kptStore.dispatcherToken = Dispatcher.register(function(payload) {
 
   switch (action.actionType) {
     case 'add':
+      // TODO: Storeのメソッドにする
       kptLists.push({
         id: kptLists.length,
         author: action.author,
         comment: action.comment,
         grouping: action.grouping
       });
+      kptStore.emitChange();
+      break;
+    case 'remove':
+      kptStore.remove(action.id);
       kptStore.emitChange();
       break;
     default:

@@ -25,15 +25,15 @@ var KptList = React.createClass({
   },
   render: function() {
     var keepList = _.map(this.state.keeps, function(kpt) {
-      return <KptLabel key={kpt.id} comment={kpt.comment} author={kpt.author} />
+      return <KptLabel key={kpt.id} id={kpt.id} comment={kpt.comment} author={kpt.author} />
     });
 
     var problemList = _.map(this.state.problems, function(kpt) {
-      return <KptLabel key={kpt.id} comment={kpt.comment} author={kpt.author} />
+      return <KptLabel key={kpt.id} id={kpt.id} comment={kpt.comment} author={kpt.author} />
     });
 
     var tryList = _.map(this.state.tries, function(kpt) {
-      return <KptLabel key={kpt.id} comment={kpt.comment} author={kpt.author} />
+      return <KptLabel key={kpt.id} id={kpt.id} comment={kpt.comment} author={kpt.author} />
     });
     return (
       <div>

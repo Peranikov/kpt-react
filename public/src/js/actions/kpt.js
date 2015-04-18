@@ -8,6 +8,12 @@ var kptAction = {
       author: author,
       grouping: grouping
     });
+  },
+  remove: function(id) {
+    Dispatcher.handleViewAction({
+      actionType: 'remove',
+      id: id
+    });
   }
 };
 
